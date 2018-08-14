@@ -25,7 +25,8 @@ In your package.json, make sure that "name," "description," "repository," "bugs,
 
 #### 6. Update webpack.config.js
 
-Change [MODULE_NAME] to the name you want
+Change entry file to either main.js or main.vue
+Change [MODULE_NAME] to the name you wan
 
 #### 7. Push up changes
 ``` git add . ```\
