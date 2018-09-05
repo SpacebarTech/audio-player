@@ -2,7 +2,7 @@
   "name": "@spacebartech/audio-player",
   "version": "0.0.0-development",
   "description": "Audio player vue component",
-  "main": "dist/audioPlayer.js",
+  "main": "dist/index.js",
   "files": [
     "dist/"
   ],
