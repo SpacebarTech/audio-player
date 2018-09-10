@@ -10,6 +10,8 @@ audio player vue component
 
 ## Usage
 
+  `const AudioPlayer = require( '@spacebartech/audio-player' )`
+
 ## Tests
 
-`npm test`
+  `npm test`
