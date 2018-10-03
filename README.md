@@ -10,7 +10,26 @@ audio player vue component
 
 ## Usage
 
-  `const AudioPlayer = require( '@spacebartech/audio-player' )`
+  `import AudioPlayer from '@spacebartech/audio-player'`
+
+  ```
+  props : {
+		src : {
+      type     : String,
+			required : true
+		},
+		duration : {
+      type    : String,
+			default : null
+		}
+	}
+
+  audio-player(
+    :src='audioSrc'
+    :duration='duration'
+  )
+
+  ```
 
 ## Tests
 

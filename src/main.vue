@@ -21,12 +21,50 @@
 </template>
 
 <script>
+
+const EnsureMinLength = ( numOrString, len ) => {
+	let str = typeof numOrString === 'number' ? numOrString.toString() : numOrString;
+
+	if ( typeof str !== 'string' ) {
+		throw new Error( 'First paramater numOrString must be number or string' );
+	}
+
+	while ( str.length < len ) {
+		str = `0${str}`;
+	}
+
+	return str;
+};
+
+const GetTime = ( ms ) => {
+
+	const numberOfSeconds = ( ms / 1000 );
+	const numberOfMinutes = Math.floor( numberOfSeconds / 60 );
+
+	const hours   = Math.floor( numberOfMinutes / 60 );
+	const minutes = Math.floor( numberOfMinutes % 60 );
+	const seconds = Math.round( numberOfSeconds % 60 );
+
+	const m = EnsureMinLength( minutes, 2 );
+	const s = EnsureMinLength( seconds, 2 );
+
+	if ( hours === 0 ) {
+		return `${minutes}:${s}`;
+	}
+
+	return `${hours}:${m}:${s}`;
+};
+
 export default {
+  name : 'audio-player',
+
 	props : {
 		src : {
+      type     : String,
 			required : true
 		},
 		duration : {
+      type    : String,
 			default : null
 		}
 	},
@@ -154,9 +192,7 @@ export default {
 </script>
 
 <style lang="scss">
-	 $opaqueLightBlue : rgba(46, 84, 145, 0.15);
-	 $lightBlue       : #2E5491;
-
+	 $primaryColor : #2E5491 !default;
 
 	.player {
 		position: relative;
@@ -167,7 +203,7 @@ export default {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		background: $opaqueLightBlue;
+		background: rgba( $primaryColor, .15 );
 
 		&.no-bg {
 			background-color: none;
@@ -219,7 +255,7 @@ export default {
 				left: 50%;
 				height: 0;
 				width: 2;
-				background-color: $lightBlue;
+				background-color: $primaryColor;
 				transition: height 0.2s ease;
 				will-change: height;
 				transform: translateX(-50%);
@@ -232,7 +268,7 @@ export default {
 				transform: translateX(-50%);
 				padding: 5px;
 				border-radius: 3px;
-				background-color: $lightBlue;
+				background-color: $primaryColor;
 				color: white;
 				opacity: 0;
 				transition: opacity 0.2s ease, top 0.2s ease;
@@ -244,7 +280,7 @@ export default {
 			top: 0;
 			bottom: 0;
 			left: 0;
-			background-color: $lightBlue;
+			background-color: $primaryColor;
 			opacity: 0.25;
 			z-index: 1;
 			pointer-events: none;
@@ -254,7 +290,7 @@ export default {
 			height: 45px;
 			width: 45px;
 			border-radius: 50%;
-			background-color: $lightBlue;
+			background-color: $primaryColor;
 			position: relative;
 			cursor: pointer;
 			z-index: 2;
@@ -320,7 +356,7 @@ export default {
 		.timer {
 			padding: 5px;
 			border-radius: 3px;
-			background-color: $lightBlue;
+			background-color: $primaryColor;
 			color: white;
 			font-size: 12px;
 			letter-spacing: 2px;
