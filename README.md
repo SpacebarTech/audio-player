@@ -31,6 +31,13 @@ audio player vue component
 
   ```
 
+  ```
+  Sass variables
+
+  $primaryColor : #2E5491 !default;
+
+  ```
+
 ## Tests
 
   `npm test`
