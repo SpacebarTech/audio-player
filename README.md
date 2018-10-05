@@ -19,7 +19,6 @@ audio player vue component
 			required : true
 		},
 		duration : {
-      type    : String,
 			default : null
 		}
 	}

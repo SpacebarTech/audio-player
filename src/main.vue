@@ -64,7 +64,6 @@ export default {
 			required : true
 		},
 		duration : {
-      type    : String,
 			default : null
 		}
 	},
