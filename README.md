@@ -14,14 +14,13 @@ audio player vue component
 
   ```
   props : {
-		src : {
-      type     : String,
-			required : true
-		},
-		duration : {
-			default : null
-		}
-	}
+    src : {
+      required : true
+    },
+    duration : {
+      default : null
+    }
+  }
 
   audio-player(
     :src='audioSrc'
