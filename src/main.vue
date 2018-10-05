@@ -60,7 +60,6 @@ export default {
 
 	props : {
 		src : {
-      type     : String,
 			required : true
 		},
 		duration : {
